@@ -1,0 +1,2 @@
+# items to be ignored by  git
+./env
