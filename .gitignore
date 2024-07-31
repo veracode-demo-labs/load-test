@@ -1,3 +1,5 @@
 # items to be ignored by  git
 env
 .env
+UsersAPIs*
+.venv/

@@ -37,12 +37,12 @@ def CreateUsersAPI(id, key, qtd_users, file_name):
             "api_secret": ""
         }
         count_user += 1
-        create_user_input["user_name"] = "API_Itau_LoadTest_" + str(count_user)
-        create_user_input["email_address"] = "rafaelmaiadeamorim+ILT" + str(count_user) + "@gmail.com"
+        create_user_input["user_name"] = "API_LoadTest_" + base_name + "_" + str(count_user)
+        create_user_input["email_address"] =  base_name + "+ILT_" + str(count_user) + "@gmail.com"
         print("User created: " + str(count_user))
 
         # Creates an API request using the python veracode-api-signing library to create a user
-        response = requests.post(api_base + "api/authn/v2/users", auth=RequestsAuthPluginVeracodeHMAC(), headers=headers, json=create_user_input)
+        response = requests.post(api_base + "api/authn/v2/users", auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers, json=create_user_input)
         print(response)
         # If successful auth, store api credentials from the response
         if response.ok:
@@ -69,7 +69,7 @@ def CreateUsersAPI(id, key, qtd_users, file_name):
 def CreateUsersIDKEY(user_id, id, key):
 
     # Creates request to api_credentials to get creds
-    response = requests.post(api_base + "api/authn/v2/api_credentials/user_id/" + user_id, auth=RequestsAuthPluginVeracodeHMAC(), headers=headers)
+    response = requests.post(api_base + "api/authn/v2/api_credentials/user_id/" + user_id, auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers)
     if response.status_code == 200:
         data = response.json()
         api_id = data["api_id"]
@@ -85,22 +85,23 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-ID', '--id', required=True, help='ID')
 parser.add_argument('-key', '--key', required=True, help='Key')
 parser.add_argument('-qtd_users', '--qtd_users', dest='qtd_users', required=True, help='Qtd Users')
-parser.add_argument('-file_name', '--file_name', dest='file_name', required=True, help='File')
+parser.add_argument('-base_name', '--base_name', dest='base_name', required=True, help='Unique Base Username')
 
 args = parser.parse_args()
 
-id = args.id
-key = args.key
-qtd_users = args.qtd_users # Number of users to make
-file_name = args.file_name
+load_dotenv()
 
-if not all([id, key, qtd_users, file_name]):
+# id = args.id
+# key = args.key
+id = os.getenv('veracode_api_key_id', args.id)
+key = os.getenv('veracode_api_key_secret', args.key)
+qtd_users = args.qtd_users # Number of users to make
+base_name = args.base_name
+
+if not all([id, key, qtd_users, base_name]):
     parser.print_usage()
     sys.exit(1)
 
-id = os.getenv('veracode_api_key_id')
-key = os.getenv('veracode_api_key_secret')
-
 print(id, "\n", key)
 
-CreateUsersAPI(id, key, qtd_users, file_name)
+CreateUsersAPI(id, key, qtd_users, base_name)
