@@ -3,6 +3,9 @@ import json
 import time
 from threading import Semaphore, Thread
 
+# Change this variable to edit total number of executions
+TOTAL_EXECUTIONS = 1000
+
 # Creates scan request 
 def execute_shell_script(user, semaphore_dict, execution_count):
 
@@ -10,7 +13,7 @@ def execute_shell_script(user, semaphore_dict, execution_count):
     
     print(f"Executing with user {user['user_id']} - Execution: {execution_count}")
 
-    # TODO: Add the requisite files to the repository
+    # Use the user to run the pipeline scan on verademo-dotnet
     command = ["java", "-jar", "pipeline-scan.jar", "-vid", user["api_id"], "-vkey", user["api_secret"], "-f", "Verademo-dotnet.zip", "-jf", f"resultExec{execution_count}.json"]
 
     subprocess.call(command)
@@ -47,7 +50,7 @@ def main():
         data = json.load(file)
         users = data["users"]
 
-    total_executions = 1000
+    total_executions = TOTAL_EXECUTIONS
 
     # declares each user to get max 5 threads.
     semaphore_dict = {user["user_id"]: Semaphore(5) for user in users}
