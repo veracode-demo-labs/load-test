@@ -1,8 +1,13 @@
 import argparse
+import os
 import sys
 import requests
 import json
 from veracode_api_signing.plugin_requests import RequestsAuthPluginVeracodeHMAC
+from dotenv import load_dotenv
+
+# load environment variables in .env file
+# load_dotenv()
 
 # below is for Veracode US Commercial region. For logins in other region uncomment one of the other lines
 api_base = "https://api.veracode.com/"
@@ -44,7 +49,7 @@ def CreateUsersAPI(id, key, qtd_users, file_name):
             data = response.json()
 
             # Creating user tokens
-            api_id, api_secret = CreateUsersIDKEY(data["user_id"])
+            api_id, api_secret = CreateUsersIDKEY(data["user_id"], id, key)
 
             userAPI["user_id"] = data["user_id"]
             userAPI["api_id"] = api_id
@@ -52,7 +57,7 @@ def CreateUsersAPI(id, key, qtd_users, file_name):
 
             users_json["users"].append(userAPI)
         else:
-            print("API Error.")
+            print("CreateUsers API Error.")
     
     users_json["users"].append(userAPI)
 
@@ -61,17 +66,17 @@ def CreateUsersAPI(id, key, qtd_users, file_name):
         json.dump(users_json, output_file, indent=4)
 
 # Gets the api id and secret key of the specified user id.
-def CreateUsersIDKEY(user_id):
+def CreateUsersIDKEY(user_id, id, key):
 
     # Creates request to api_credentials to get creds
-    response = requests.post(api_base + "api/authn/v2/api_credentials/user_id/" + user_id, auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers)
+    response = requests.post(api_base + "api/authn/v2/api_credentials/user_id/" + user_id, auth=RequestsAuthPluginVeracodeHMAC(), headers=headers)
     if response.status_code == 200:
         data = response.json()
         api_id = data["api_id"]
         api_secret = data["api_secret"]
         return api_id, api_secret
     else:
-        print("API Error.")
+        print("CreateIDKEYAPI Error.")
 
 # Main part of code. Specifies command line arguments to be used in when the program runs
 # TODO: good idea to put this in a function, as opposed to being loose in file.
@@ -92,5 +97,10 @@ file_name = args.file_name
 if not all([id, key, qtd_users, file_name]):
     parser.print_usage()
     sys.exit(1)
+
+id = os.getenv('veracode_api_key_id')
+key = os.getenv('veracode_api_key_secret')
+
+print(id, "\n", key)
 
 CreateUsersAPI(id, key, qtd_users, file_name)
