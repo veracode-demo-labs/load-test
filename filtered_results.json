@@ -4,13 +4,13 @@
       "href": "/"
     },
     "self": {
-      "href": "/scans/e4a702c4-81bf-4a20-bb75-c0bc33a32c2e/findings"
+      "href": "/scans/333191cf-6c8c-4d65-a5fe-6584261782fa/findings"
     },
     "help": {
       "href": "https://help.veracode.com/reader/tS9CaFwL4_lbIEWWomsJoA/ovfZGgu96UINQxIuTqRDwg"
     }
   },
-  "scan_id": "e4a702c4-81bf-4a20-bb75-c0bc33a32c2e",
+  "scan_id": "333191cf-6c8c-4d65-a5fe-6584261782fa",
   "scan_status": "SUCCESS",
   "message": "Scan successful. Results size: 194106 bytes",
   "modules": [
@@ -21,7 +21,7 @@
     {
       "title": "system_diagnostics_process_dll.System.Diagnostics.Process.Start",
       "issue_id": 1023,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 5,
       "issue_type_id": "taint",
@@ -60,7 +60,7 @@
     {
       "title": "system_diagnostics_process_dll.System.Diagnostics.Process.Start",
       "issue_id": 1022,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 5,
       "issue_type_id": "taint",
@@ -99,7 +99,7 @@
     {
       "title": "system_data_common_dll.System.Data.IDbCommand.ExecuteReader",
       "issue_id": 1051,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 4,
       "issue_type_id": "taint",
@@ -138,7 +138,7 @@
     {
       "title": "system_data_common_dll.System.Data.IDbCommand.ExecuteReader",
       "issue_id": 1050,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 4,
       "issue_type_id": "taint",
@@ -177,7 +177,7 @@
     {
       "title": "entityframework_dll.System.Data.Entity.Database.SqlQuery",
       "issue_id": 1087,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 4,
       "issue_type_id": "taint",
@@ -216,7 +216,7 @@
     {
       "title": "system_data_common_dll.System.Data.IDbCommand.ExecuteReader",
       "issue_id": 1048,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 4,
       "issue_type_id": "taint",
@@ -255,7 +255,7 @@
     {
       "title": "system_data_common_dll.System.Data.IDbCommand.ExecuteReader",
       "issue_id": 1049,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 4,
       "issue_type_id": "taint",
@@ -294,7 +294,7 @@
     {
       "title": "system_data_common_dll.System.Data.IDbCommand.ExecuteScalar",
       "issue_id": 1053,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 4,
       "issue_type_id": "taint",
@@ -333,7 +333,7 @@
     {
       "title": "system_data_common_dll.System.Data.IDbCommand.ExecuteNonQuery",
       "issue_id": 1047,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 4,
       "issue_type_id": "taint",
@@ -372,7 +372,7 @@
     {
       "title": "system_data_common_dll.System.Data.IDbCommand.ExecuteNonQuery",
       "issue_id": 1046,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 4,
       "issue_type_id": "taint",
@@ -411,7 +411,7 @@
     {
       "title": "system_data_common_dll.System.Data.IDbCommand.ExecuteNonQuery",
       "issue_id": 1045,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 4,
       "issue_type_id": "taint",
@@ -450,7 +450,7 @@
     {
       "title": "system_data_common_dll.System.Data.IDbCommand.ExecuteScalar",
       "issue_id": 1052,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 4,
       "issue_type_id": "taint",
@@ -489,7 +489,7 @@
     {
       "title": "system_data_common_dll.System.Data.IDbCommand.ExecuteNonQuery",
       "issue_id": 1044,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 4,
       "issue_type_id": "taint",
@@ -528,7 +528,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_viewfeatures_dll.Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper.Raw",
       "issue_id": 1041,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -567,7 +567,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_razor_dll.Microsoft.AspNetCore.Mvc.Razor.RazorPageBase.Write",
       "issue_id": 1057,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -606,7 +606,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_viewfeatures_dll.Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper.Raw",
       "issue_id": 1039,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -645,7 +645,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_razor_dll.Microsoft.AspNetCore.Mvc.Razor.RazorPageBase.Write",
       "issue_id": 1058,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -684,7 +684,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_viewfeatures_dll.Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper.Raw",
       "issue_id": 1040,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -723,7 +723,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_razor_dll.Microsoft.AspNetCore.Mvc.Razor.RazorPageBase.Write",
       "issue_id": 1061,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -762,7 +762,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_viewfeatures_dll.Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper.Raw",
       "issue_id": 1042,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -801,7 +801,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_razor_dll.Microsoft.AspNetCore.Mvc.Razor.RazorPageBase.Write",
       "issue_id": 1055,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -840,7 +840,7 @@
     {
       "title": "Server\u003d127.0.0.1,1433?Database\u003dVerademo?User\u003dsa?Password\u003dSuperSecurePassw0rd",
       "issue_id": 1020,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -875,7 +875,7 @@
     {
       "title": "Tools",
       "issue_id": 1009,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -910,7 +910,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1081,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -949,7 +949,7 @@
     {
       "title": "PostReset",
       "issue_id": 1008,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -984,7 +984,7 @@
     {
       "title": "system_runtime_dll.System.Random.Next",
       "issue_id": 1025,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "reliability",
@@ -1019,7 +1019,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1079,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1058,7 +1058,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1080,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1097,7 +1097,7 @@
     {
       "title": "system_runtime_dll.System.Random.Next",
       "issue_id": 1026,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "reliability",
@@ -1132,7 +1132,7 @@
     {
       "title": "system_runtime_dll.System.Random.Next",
       "issue_id": 1028,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "reliability",
@@ -1167,7 +1167,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1077,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1206,7 +1206,7 @@
     {
       "title": "system_runtime_dll.System.Random.Next",
       "issue_id": 1030,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "reliability",
@@ -1241,7 +1241,7 @@
     {
       "title": "system_runtime_dll.System.Random.Next",
       "issue_id": 1027,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "reliability",
@@ -1276,7 +1276,7 @@
     {
       "title": "system_runtime_dll.System.Random.Next",
       "issue_id": 1031,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "reliability",
@@ -1311,7 +1311,7 @@
     {
       "title": "system_runtime_dll.System.Random.Next",
       "issue_id": 1029,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "reliability",
@@ -1346,7 +1346,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1078,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1385,7 +1385,7 @@
     {
       "title": "PostSearchBlabs",
       "issue_id": 1004,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -1420,7 +1420,7 @@
     {
       "title": "PostFeed",
       "issue_id": 1005,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -1455,7 +1455,7 @@
     {
       "title": "PostBlabbers",
       "issue_id": 1006,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -1490,7 +1490,7 @@
     {
       "title": "system_runtime_dll.System.Activator.CreateInstance",
       "issue_id": 1043,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1529,7 +1529,7 @@
     {
       "title": "PostBlab",
       "issue_id": 1007,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -1564,7 +1564,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1084,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1603,7 +1603,7 @@
     {
       "title": "newtonsoft_json_dll.Newtonsoft.Json.JsonConvert.DeserializeObject",
       "issue_id": 1021,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1642,7 +1642,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_core_dll.Microsoft.AspNetCore.Mvc.ControllerBase.Redirect",
       "issue_id": 1063,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1677,7 +1677,7 @@
     {
       "title": "PostLogin",
       "issue_id": 1017,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -1712,7 +1712,7 @@
     {
       "title": "PostLogin",
       "issue_id": 1000,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -1747,7 +1747,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1085,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1786,7 +1786,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_core_dll.Microsoft.AspNetCore.Mvc.ControllerBase.Redirect",
       "issue_id": 1064,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1821,7 +1821,7 @@
     {
       "title": "PostProfile",
       "issue_id": 1001,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -1856,7 +1856,7 @@
     {
       "title": "system_runtime_dll.System.IO.File.Delete",
       "issue_id": 1032,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1895,7 +1895,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1075,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1934,7 +1934,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_core_dll.Microsoft.AspNetCore.Mvc.ControllerBase.Content",
       "issue_id": 1035,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -1973,7 +1973,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1073,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2012,7 +2012,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_core_dll.Microsoft.AspNetCore.Mvc.ControllerBase.Content",
       "issue_id": 1037,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2051,7 +2051,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_core_dll.Microsoft.AspNetCore.Mvc.ControllerBase.Content",
       "issue_id": 1036,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2090,7 +2090,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_core_dll.Microsoft.AspNetCore.Mvc.ControllerBase.Content",
       "issue_id": 1038,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2129,7 +2129,7 @@
     {
       "title": "system_runtime_dll.System.IO.File.Move",
       "issue_id": 1034,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2168,7 +2168,7 @@
     {
       "title": "system_runtime_dll.System.IO.File.Move",
       "issue_id": 1033,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2207,7 +2207,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1074,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2246,7 +2246,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1072,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2285,7 +2285,7 @@
     {
       "title": "microsoft_aspnetcore_mvc_core_dll.Microsoft.AspNetCore.Mvc.ControllerBase.PhysicalFile",
       "issue_id": 1088,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2324,7 +2324,7 @@
     {
       "title": "PostRegister",
       "issue_id": 1002,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -2359,7 +2359,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1076,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2398,7 +2398,7 @@
     {
       "title": "PostRegisterFinish",
       "issue_id": 1018,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -2433,7 +2433,7 @@
     {
       "title": "PostRegisterFinish",
       "issue_id": 1003,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "crypto",
@@ -2468,7 +2468,7 @@
     {
       "title": "system_runtime_dll.System.IO.File.Copy",
       "issue_id": 1024,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2507,7 +2507,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1071,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2546,7 +2546,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1083,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2585,7 +2585,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1086,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2624,7 +2624,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1070,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2663,7 +2663,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1082,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2702,7 +2702,7 @@
     {
       "title": "log4net_dll.log4net.ILog.Info",
       "issue_id": 1069,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 3,
       "issue_type_id": "taint",
@@ -2741,7 +2741,7 @@
     {
       "title": "get_UserName",
       "issue_id": 1012,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 2,
       "issue_type_id": "crypto",
@@ -2776,7 +2776,7 @@
     {
       "title": "get_BlabName",
       "issue_id": 1013,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 2,
       "issue_type_id": "crypto",
@@ -2811,7 +2811,7 @@
     {
       "title": "get_RealName",
       "issue_id": 1014,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 2,
       "issue_type_id": "crypto",
@@ -2846,7 +2846,7 @@
     {
       "title": "get_Password",
       "issue_id": 1015,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 2,
       "issue_type_id": "crypto",
@@ -2881,7 +2881,7 @@
     {
       "title": "get_PasswordHint",
       "issue_id": 1016,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 2,
       "issue_type_id": "crypto",
@@ -2916,7 +2916,7 @@
     {
       "title": "get_Password",
       "issue_id": 1010,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 2,
       "issue_type_id": "crypto",
@@ -2951,7 +2951,7 @@
     {
       "title": "get_ReturnURL",
       "issue_id": 1011,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 2,
       "issue_type_id": "crypto",
@@ -2986,7 +2986,7 @@
     {
       "title": "PostRegisterFinish",
       "issue_id": 1019,
-      "image_path": "/tmp/tmpzevzp51r/binary/Verademo-dotnet_1722457913890_zip/app.dll",
+      "image_path": "/tmp/tmp9mekr5x_/binary/Verademo-dotnet_1722458045305_zip/app.dll",
       "gob": "B",
       "severity": 2,
       "issue_type_id": "crypto",
