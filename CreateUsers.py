@@ -58,8 +58,6 @@ def CreateUsersAPI(id, key, qtd_users, file_name):
             users_json["users"].append(userAPI)
         else:
             print("CreateUsers API Error.")
-    
-    users_json["users"].append(userAPI)
 
     # Write the output keys obtained to a new file
     with open('UsersAPIs1.json', 'w') as output_file:
@@ -101,7 +99,5 @@ base_name = args.base_name
 if not all([id, key, qtd_users, base_name]):
     parser.print_usage()
     sys.exit(1)
-
-print(id, "\n", key)
 
 CreateUsersAPI(id, key, qtd_users, base_name)

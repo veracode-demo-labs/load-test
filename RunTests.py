@@ -9,6 +9,8 @@ def execute_shell_script(user, semaphore_dict, execution_count):
     print(f"Executing with user {user['user_id']} - Execution: {execution_count}")
     
     print(f"Executing with user {user['user_id']} - Execution: {execution_count}")
+
+    # TODO: Add the requisite files to the repository
     command = ["java", "-jar", "pipeline-scan.jar", "-vid", user["api_id"], "-vkey", user["api_secret"], "-f", "Verademo-dotnet.zip", "-jf", f"resultExec{execution_count}.json"]
 
     subprocess.call(command)
@@ -41,7 +43,7 @@ def main():
     # TODO: Remove unnecessary control_thread, replace with straight call to control_execution.
 
     # Load in data from json file
-    with open("UsersAPIs.json", "r") as file:
+    with open("UsersAPIs1.json", "r") as file:
         data = json.load(file)
         users = data["users"]
 
