@@ -15,17 +15,12 @@ from dotenv import load_dotenv
 API_BASE = "https://api.veracode.com/"
 #API_BASE = "https://api.veracode.eu/" # for logins in the Veracode European Region
 #API_BASE = "https://api.veracode.us/" # for logins in the Veracode US Federal Region
-TEAM_NAME = 'load_test6'
 headers = {"User-Agent": "Python HMAC"}
 
-#TODO
-def CreateTeam(id, key):
-    with open("CreateTeamInput.json", 'r') as team_file:
-        create_team_input = {
-            "team_name": TEAM_NAME
-        }
-        print(create_team_input)
-        print(get_credentials())
+def CreateTeam(id, key, team_name):
+    create_team_input = {
+        "team_name": team_name
+    }
     response = requests.post(API_BASE + "api/authn/v2/teams", auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers, json=create_team_input)
     print(response)
     if response.ok:
@@ -35,7 +30,7 @@ def CreateTeam(id, key):
         return
     elif response.status_code == 400:
         print("Invalid request: Check that TEAM_NAME does not already exist.")
-        print("If it does, either delete the team with that name or change TEAM_NAME at the top of the modules/CreateUsers.py file")
+        print("If it does, either delete the team with that name or change TEAM_NAME at the top of the main.py file")
     else:
         print(response.text)
     exit(1)

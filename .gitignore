@@ -5,3 +5,4 @@ UsersAPI*
 .venv/
 resultExec*
 filtered_results*
+__pycache__/
