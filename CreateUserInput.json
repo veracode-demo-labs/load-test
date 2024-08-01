@@ -23,10 +23,5 @@
        {
           "permission_name":"apiUser"
        }
-    ],
-    "teams":[
-       {
-          "team_id": "a0dc9c3d-4fcf-47f3-b548-732532f716ee"
-       }
     ]
  }
