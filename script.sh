@@ -1,9 +1,10 @@
 #!/bin/bash
 
-veracode_api_key_id=<veracode_api_key_id>
-veracode_api_key_secret=<veracode_api_key_secret>
+# veracode_api_key_id=<veracode_api_key_id>
+# veracode_api_key_secret=<veracode_api_key_secret>
 
 python CreateUsers.py -ID $veracode_api_key_id -key $veracode_api_key_secret -qtd_users 4 -file_name test
+
 # Try to read the credentials file
 # file=~/.veracode/credentia ls
 # if [[ -r $file ]]; then
