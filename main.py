@@ -20,7 +20,7 @@ base_name = args.base_name
 id, key = EnvSetup.envSetup(args.id, args.key, args.profile)
 print(id, key)
 
-CreateUsers.CreateUsersAPI(id, key, qtd_users, None, base_name)
+CreateUsers.CreateUsersAPI(id, key, qtd_users, base_name, None)
 
 
 # print(createUsers(id, key))
