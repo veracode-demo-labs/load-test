@@ -4,29 +4,48 @@ import sys
 import requests
 import json
 from veracode_api_signing.plugin_requests import RequestsAuthPluginVeracodeHMAC
+from veracode_api_signing.credentials import get_credentials
+
 from dotenv import load_dotenv
 
 # load environment variables in .env file
 # load_dotenv()
 
 # below is for Veracode US Commercial region. For logins in other region uncomment one of the other lines
-api_base = "https://api.veracode.com/"
-#api_base = "https://api.veracode.eu/" # for logins in the Veracode European Region
-#api_base = "https://api.veracode.us/" # for logins in the Veracode US Federal Region
+API_BASE = "https://api.veracode.com/"
+#API_BASE = "https://api.veracode.eu/" # for logins in the Veracode European Region
+#API_BASE = "https://api.veracode.us/" # for logins in the Veracode US Federal Region
+TEAM_NAME = 'load_test6'
 headers = {"User-Agent": "Python HMAC"}
 
-users_json = {
-    "users": []
-}
-users = []
-
 #TODO
-def CreateTeam():
-    return
+def CreateTeam(id, key):
+    with open("CreateTeamInput.json", 'r') as team_file:
+        create_team_input = {
+            "team_name": TEAM_NAME
+        }
+        print(create_team_input)
+        print(get_credentials())
+    response = requests.post(API_BASE + "api/authn/v2/teams", auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers, json=create_team_input)
+    print(response)
+    if response.ok:
+        print(response.json())
+        team_id = response.json()['team_id']
+        print(team_id)
+        return
+    elif response.status_code == 400:
+        print("Invalid request: Check that TEAM_NAME does not already exist.")
+        print("If it does, either delete the team with that name or change TEAM_NAME at the top of the modules/CreateUsers.py file")
+    else:
+        print(response.text)
+    exit(1)
 
-# Builds users based on the specified # of qtd_users, getting 
-def CreateUsersAPI(id, key, qtd_users, team_id):
+# Builds users based on the specified # of qtd_, getting 
+def CreateUsersAPI(id, key, qtd_users, base_name, team_id):
     count_user = 0
+    users_json = {
+        "users": []
+    }
     
     # Creates framework user data needed for obtaining creds
     with open("CreateUserInput.json", 'r') as f1:
@@ -46,7 +65,7 @@ def CreateUsersAPI(id, key, qtd_users, team_id):
         print("User created: " + str(count_user))
 
         # Creates an API request using the python veracode-api-signing library to create a user
-        response = requests.post(api_base + "api/authn/v2/users", auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers, json=create_user_input)
+        response = requests.post(API_BASE + "api/authn/v2/users", auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers, json=create_user_input)
         print(response)
         # If successful auth, store api credentials from the response
         if response.ok:
@@ -71,7 +90,7 @@ def CreateUsersAPI(id, key, qtd_users, team_id):
 def CreateUsersIDKEY(user_id, id, key):
 
     # Creates request to api_credentials to get creds
-    response = requests.post(api_base + "api/authn/v2/api_credentials/user_id/" + user_id, auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers)
+    response = requests.post(API_BASE + "api/authn/v2/api_credentials/user_id/" + user_id, auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers)
     if response.status_code == 200:
         data = response.json()
         api_id = data["api_id"]
@@ -82,27 +101,30 @@ def CreateUsersIDKEY(user_id, id, key):
 
 # Main part of code. Specifies command line arguments to be used in when the program runs
 # TODO: good idea to put this in a function, as opposed to being loose in file.
-parser = argparse.ArgumentParser()
+def runCreateUsers():
+    parser = argparse.ArgumentParser()
 
-parser.add_argument('-ID', '--id', '-id', '--ID', required=False, help='Veracode API ID for creating users')
-parser.add_argument('-key', '--key', required=False, help='Veracode API Key for creating users')
-parser.add_argument('-profile', '--profile', required=False, help='Profile to pick from veracode credentials file. Default: default')
-parser.add_argument('-qtd_users', '--qtd_users', dest='qtd_users', required=True, help='The number of users to creates')
-parser.add_argument('-base_name', '--base_name', dest='base_name', required=True, help='A unique base username to generate users from')
+    parser.add_argument('-ID', '--id', '-id', '--ID', required=False, help='Veracode API ID for creating users')
+    parser.add_argument('-key', '--key', required=False, help='Veracode API Key for creating users')
+    parser.add_argument('-profile', '--profile', required=False, help='Profile to pick from veracode credentials file. Default: default')
+    parser.add_argument('-qtd_users', '--qtd_users', dest='qtd_users', required=False, help='The number of users to creates')
+    parser.add_argument('-base_name', '--base_name', dest='base_name', required=False, help='A unique base username to generate users from')
 
-args = parser.parse_args()
+    args = parser.parse_args()
 
-load_dotenv()
+    load_dotenv()
 
-# id = args.id
-# key = args.key
-id = os.getenv('veracode_api_key_id', args.id)
-key = os.getenv('veracode_api_key_secret', args.key)
-qtd_users = args.qtd_users # Number of users to make
-base_name = args.base_name
+    # id = args.id
+    # key = args.key
+    id = os.getenv('veracode_api_key_id', args.id)
+    key = os.getenv('veracode_api_key_secret', args.key)
+    qtd_users = args.qtd_users # Number of users to make
+    base_name = args.base_name
 
-if not all([id, key, qtd_users, base_name]):
-    parser.print_usage()
-    sys.exit(1)
+    if not all([id, key, qtd_users, base_name]):
+        parser.print_usage()
+        sys.exit(1)
 
-CreateUsersAPI(id, key, qtd_users, base_name)
+    CreateUsersAPI(id, key, qtd_users, base_name)
+
+
