@@ -20,9 +20,12 @@ users_json = {
 }
 users = []
 
+#TODO
+def CreateTeam():
+    return
 
 # Builds users based on the specified # of qtd_users, getting 
-def CreateUsersAPI(id, key, qtd_users, file_name):
+def CreateUsersAPI(id, key, qtd_users, team_id):
     count_user = 0
     
     # Creates framework user data needed for obtaining creds
@@ -37,6 +40,7 @@ def CreateUsersAPI(id, key, qtd_users, file_name):
             "api_secret": ""
         }
         count_user += 1
+        create_user_input["team_id"] = team_id 
         create_user_input["user_name"] = "API_LoadTest_" + base_name + "_" + str(count_user)
         create_user_input["email_address"] =  base_name + "+ILT_" + str(count_user) + "@gmail.com"
         print("User created: " + str(count_user))
@@ -80,10 +84,11 @@ def CreateUsersIDKEY(user_id, id, key):
 # TODO: good idea to put this in a function, as opposed to being loose in file.
 parser = argparse.ArgumentParser()
 
-parser.add_argument('-ID', '--id', required=True, help='ID')
-parser.add_argument('-key', '--key', required=True, help='Key')
-parser.add_argument('-qtd_users', '--qtd_users', dest='qtd_users', required=True, help='Qtd Users')
-parser.add_argument('-base_name', '--base_name', dest='base_name', required=True, help='Unique Base Username')
+parser.add_argument('-ID', '--id', '-id', '--ID', required=False, help='Veracode API ID for creating users')
+parser.add_argument('-key', '--key', required=False, help='Veracode API Key for creating users')
+parser.add_argument('-profile', '--profile', required=False, help='Profile to pick from veracode credentials file. Default: default')
+parser.add_argument('-qtd_users', '--qtd_users', dest='qtd_users', required=True, help='The number of users to creates')
+parser.add_argument('-base_name', '--base_name', dest='base_name', required=True, help='A unique base username to generate users from')
 
 args = parser.parse_args()
 

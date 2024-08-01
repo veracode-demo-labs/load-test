@@ -4,7 +4,7 @@ import time
 from threading import Semaphore, Thread
 
 # Change this variable to edit total number of executions
-TOTAL_EXECUTIONS = 1000
+TOTAL_EXECUTIONS = 3
 
 # Creates scan request 
 def execute_shell_script(user, semaphore_dict, execution_count):

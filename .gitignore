@@ -1,7 +1,7 @@
 # items to be ignored by  git
 env
 .env
-UsersAPIs*
+UsersAPI*
 .venv/
 resultExec*
 filtered_results*
