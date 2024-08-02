@@ -5,38 +5,34 @@ import requests
 import json
 from veracode_api_signing.plugin_requests import RequestsAuthPluginVeracodeHMAC
 from veracode_api_signing.credentials import get_credentials
+from . import errors
 
-from dotenv import load_dotenv
 
-# load environment variables in .env file
-# load_dotenv()
 
-# below is for Veracode US Commercial region. For logins in other region uncomment one of the other lines
-API_BASE = "https://api.veracode.com/"
-#API_BASE = "https://api.veracode.eu/" # for logins in the Veracode European Region
-#API_BASE = "https://api.veracode.us/" # for logins in the Veracode US Federal Region
-headers = {"User-Agent": "Python HMAC"}
-
-def CreateTeam(id, key, team_name):
+def CreateTeam(id, key, team_name, api_base, headers):
     create_team_input = {
         "team_name": team_name
     }
-    response = requests.post(API_BASE + "api/authn/v2/teams", auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers, json=create_team_input)
-    print(response)
+    # Create a new team with the given team name
+    response = requests.post(api_base + "api/authn/v2/teams", auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers, json=create_team_input)
     if response.ok:
-        print(response.json())
+        # If successful, return the id of the newly created team
         team_id = response.json()['team_id']
-        print(team_id)
-        return
+        with open('./outputs/TeamAPI.json', 'w') as output_file:
+            json.dump(response.json(), output_file, indent=4)
+        return team_id
     elif response.status_code == 400:
-        print("Invalid request: Check that TEAM_NAME does not already exist.")
-        print("If it does, either delete the team with that name or change TEAM_NAME at the top of the main.py file")
+        print("Invalid request: Check that a team name with TEAM_NAME does not already exist.\n"
+              "The team name can be changed at the top of main.py or by setting the -team_name [TEAM NAME] flag")
+    elif response.status_code == 403:
+        print(errors.PERMISSIONS_ERROR)
     else:
-        print(response.text)
+        print(f"Error creating team: {response.text}")
+    # Exit the program if we don't return from the success case
     exit(1)
 
 # Builds users based on the specified # of qtd_, getting 
-def CreateUsersAPI(id, key, qtd_users, base_name, team_id):
+def CreateUsersAPI(id, key, qtd_users, base_name, team_id, api_base, headers):
     count_user = 0
     users_json = {
         "users": []
@@ -55,37 +51,44 @@ def CreateUsersAPI(id, key, qtd_users, base_name, team_id):
         }
         count_user += 1
         create_user_input["team_id"] = team_id 
-        create_user_input["user_name"] = "API_LoadTest_" + base_name + "_" + str(count_user)
+        user_input_username = "API_LoadTest_" + base_name + "_" + str(count_user)
+        create_user_input["user_name"] = user_input_username
         create_user_input["email_address"] =  base_name + "+ILT_" + str(count_user) + "@gmail.com"
-        print("User created: " + str(count_user))
+        
 
         # Creates an API request using the python veracode-api-signing library to create a user
-        response = requests.post(API_BASE + "api/authn/v2/users", auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers, json=create_user_input)
-        print(response)
+        response = requests.post(api_base + "api/authn/v2/users", auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers, json=create_user_input)
         # If successful auth, store api credentials from the response
         if response.ok:
             data = response.json()
 
             # Creating user tokens
-            api_id, api_secret = CreateUsersIDKEY(data["user_id"], id, key)
+            api_id, api_secret = CreateUsersIDKEY(data["user_id"], id, key, api_base, headers)
 
             userAPI["user_id"] = data["user_id"]
             userAPI["api_id"] = api_id
             userAPI["api_secret"] = api_secret
 
             users_json["users"].append(userAPI)
+
+            print("User created: " + user_input_username)
+        elif response.status_code == 400:
+            print(f"A Veracode user already exists with username {user_input_username}.\n"
+                   "Skipping user... Try changing the -base_name flag!")
+        elif response.status_code == 403:
+            print(errors.PERMISSIONS_ERROR)
         else:
-            print("CreateUsers API Error.")
+            print(f"Error creating users: {response.text}")
 
     # Write the output keys obtained to a new file
-    with open('UsersAPIs1.json', 'w') as output_file:
+    with open('./outputs/UsersAPIs.json', 'w') as output_file:
         json.dump(users_json, output_file, indent=4)
-
+    
 # Gets the api id and secret key of the specified user id.
-def CreateUsersIDKEY(user_id, id, key):
+def CreateUsersIDKEY(user_id, id, key, api_base, headers):
 
     # Creates request to api_credentials to get creds
-    response = requests.post(API_BASE + "api/authn/v2/api_credentials/user_id/" + user_id, auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers)
+    response = requests.post(api_base + "api/authn/v2/api_credentials/user_id/" + user_id, auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers)
     if response.status_code == 200:
         data = response.json()
         api_id = data["api_id"]
@@ -93,6 +96,3 @@ def CreateUsersIDKEY(user_id, id, key):
         return api_id, api_secret
     else:
         print("CreateIDKEYAPI Error.")
-
-# Main part of code. Specifies command line arguments to be used in when the program runs
-# TODO: good idea to put this in a function, as opposed to being loose in file.

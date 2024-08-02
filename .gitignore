@@ -2,6 +2,7 @@
 env
 .env
 UsersAPI*
+TeamAPI*
 .venv/
 resultExec*
 filtered_results*
