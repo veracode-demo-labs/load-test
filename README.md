@@ -10,13 +10,13 @@ This script contains two executable python files:
 Also utilized is the `CreateUserInput.json` file, which is used by `CreateUsers`.
 
 ## Getting Started
-    Assuming you have python, download requirements by running `pip install -r requirements.txt`
+Assuming you have python, download requirements by running `pip install -r requirements.txt`
     
-    For a simple load test, run `python main.py -base_name [unique base name]`. This will by default create 200 users and run 1000 scans. Please see the `main.py` section below for a full list of flags to customize your request.
+For a simple load test, run `python main.py -base_name [unique base name]`. This will by default create 200 users and run 1000 scans. Please see the `main.py` section below for a full list of flags to customize your request.
 
-    The Example.py file compares a scan results file with the approved mitigations in one of the applications present in the account associated with your API credentials. In order to use this, run `python Example.py -app [name of app] -baseline [scan results file]`.
+The Example.py file compares a scan results file with the approved mitigations in one of the applications present in the account associated with your API credentials. In order to use this, run `python Example.py -app [name of app] -baseline [scan results file]`.
     
-    For both of the above, API credentials are taken from the default profile in your `~/.veracode/credentials` file unless an ID and key, or different profile, are specified in the flags. Additional customization options are available through different flags.
+For both of the above, API credentials are taken from the default profile in your `~/.veracode/credentials` file unless an ID and key, or different profile, are specified in the flags. Additional customization options are available through different flags.
 
 ## Files
 
