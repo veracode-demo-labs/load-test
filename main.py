@@ -1,11 +1,12 @@
 import argparse
-from modules import Cleanup, EnvSetup, CreateUsers, RunTests, Example
+from modules import Cleanup, EnvSetup, CreateUsers, RunTests
 
 parser = argparse.ArgumentParser()
 
 QTD_USERS = 200
 NUM_SCANS = 1000
 TEAM_NAME = "load_test"
+APP_NAME = "Verademo-dotnet.zip"
 
 # below is for Veracode US Commercial region. For logins in other region uncomment one of the other lines
 API_BASE = "https://api.veracode.com/"
@@ -14,15 +15,17 @@ API_BASE = "https://api.veracode.com/"
 headers = {"User-Agent": "Python HMAC"}
 
 # Add command line arguments
-parser.add_argument('-id', '--id', '-ID', '--ID', required=False, help='Veracode API ID for creating users')
-parser.add_argument('-key', '--key', required=False, help='Veracode API Key for creating users')
+parser.add_argument('-id', '--id', '-ID', '--ID', required=False, help='Veracode API ID')
+parser.add_argument('-key', '--key', required=False, help='Veracode API Key')
 parser.add_argument('-profile', '--profile', required=False, help='Profile to pick from veracode credentials file. Default: default')
-parser.add_argument('-qtd_users', '--qtd_users', dest='qtd_users', required=False, help='The number of users to creates',)
-parser.add_argument('-num_scans', '--num_scans', dest='num_scans', required=False, help='The number of times the scan should be run',)
+parser.add_argument('-qtd_users', '--qtd_users', dest='qtd_users', type=int, required=False, help='The number of users to creates',)
+parser.add_argument('-num_scans', '--num_scans', dest='num_scans', type=int, required=False, help='The number of times the scan should be run',)
 parser.add_argument('-team_name', '--team_name', dest='team_name', required=False, help='A unique team name to store users')
 parser.add_argument('-skip_create', '--skip_create', dest='skip_create', action='store_true', required=False, help='Skip creating a team and users. You must already have a valid outputs/UsersAPIs.json file')
 parser.add_argument('-skip_usercleanup', '--skip_usercleanup', dest='skip_usercleanup', action='store_true', required=False, help='Skip cleaning up teams and users after finished running.')
+parser.add_argument('-app_name', '--app_name', dest='app_name', required=False, help='The full name of the app file in the resources folder to be scanned. Default: Verademo-dotnet.zip')
 parser.add_argument('-base_name', '--base_name', dest='base_name', required=True, help='A unique base username to generate users from')
+
 
 args = parser.parse_args()
 
@@ -33,8 +36,9 @@ base_name = args.base_name
 qtd_users = args.qtd_users if args.qtd_users else QTD_USERS
 num_scans = args.num_scans if args.num_scans else NUM_SCANS
 team_name = args.team_name if args.team_name else TEAM_NAME
+app_name = args.app_name if args.app_name else APP_NAME
 
-# Get Env vars
+# Set up ID and key using credentials file or input flags
 id, key = EnvSetup.envSetup(args.id, args.key, args.profile)
 
 # Create team and users to run scans
@@ -52,7 +56,7 @@ if not args.skip_create:
 
 # Run scans using users
 print("Running Scans...")
-RunTests.run_tests(num_scans)
+RunTests.run_tests(num_scans, app_name)
 
 # Delete used team and users
 if not args.skip_usercleanup:

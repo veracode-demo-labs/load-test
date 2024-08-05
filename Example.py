@@ -2,9 +2,13 @@ import argparse
 import sys
 import requests
 import json
+from modules import EnvSetup
 from veracode_api_signing.plugin_requests import RequestsAuthPluginVeracodeHMAC
 
-api_base = "https://api.veracode.com/"
+# below is for Veracode US Commercial region. For logins in other region uncomment one of the other lines
+API_BASE = "https://api.veracode.com/"
+#API_BASE = "https://api.veracode.eu/" # for logins in the Veracode European Region
+#API_BASE = "https://api.veracode.us/" # for logins in the Veracode US Federal Region
 headers = {"User-Agent": "Python HMAC"}
 
 
@@ -15,17 +19,18 @@ def GenerateBaseLineFile(id, key, app_name, baseline_file):
 
 def GetApplicationGUID(id, key, app_name):
     app_guid = ""
-    response = requests.get(api_base + "appsec/v1/applications/?name=" + app_name, auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers)
+    response = requests.get(API_BASE + "appsec/v1/applications/?name=" + app_name, auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers)
     
     if response.status_code == 200:
         print("Application GUID OK.")
         data = response.json()
 
-        if data["_embedded"] is not None:
+        try:
             app_guid = data["_embedded"]["applications"][0]["guid"]
             print("Application found GUID = " + app_guid)
-        else:
-            print(f"Application Name not found. Error: {response.text}")
+        except:
+            print(f"Application Name not found.")
+            exit(1)
     else:
         print("API Error.")
     return app_guid
@@ -33,12 +38,11 @@ def GetApplicationGUID(id, key, app_name):
 # Uses the supplied guid to get flaw data.
 def GetApplicationMitigatedFlaws(id, key, app_guid):
     flawsData = ""
-    response = requests.get(api_base + "appsec/v2/applications/" + app_guid + "/findings?scan_type=STATIC", auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers)
+    response = requests.get(API_BASE + "appsec/v2/applications/" + app_guid + "/findings?scan_type=STATIC", auth=RequestsAuthPluginVeracodeHMAC(id, key), headers=headers)
     
     if response.status_code == 200:
         print("Application Flaws OK.")
         flawsData = response.json()
-        print(flawsData)
         
     else:
         print("API Error.")
@@ -47,6 +51,8 @@ def GetApplicationMitigatedFlaws(id, key, app_guid):
 
 def CompareFlaws(flaws_data, baseline_file):
 
+    print("Comparing flaws...")
+    
     approved_findings = []
     mitigated_flaws = []
 
@@ -57,7 +63,6 @@ def CompareFlaws(flaws_data, baseline_file):
     for finding in flaws_data['_embedded']['findings']:
         if finding.get('finding_status', {}).get('resolution_status') == "APPROVED":
             approved_findings.append(finding)
-
     # Loop through approved findings, compare to baseline data
     # - if finding is recognized, add it to list of mitigated
     # - otherwise, not
@@ -79,28 +84,34 @@ def CompareFlaws(flaws_data, baseline_file):
     base_data['findings'] = mitigated_flaws
 
     # Write mitigated flaws out to file.
-    with open('Baseline_Mitigated_Result.json', 'w') as output_file:
+    with open('outputs/Baseline_Mitigated_Result.json', 'w') as output_file:
         json.dump(base_data, output_file, indent=4)
+    
+    print("Example complete! Check the outputs/Baseline_Mitigated_Result.json file")
 
 # Main part of code. Specifies command line arguments to be used in when the program runs
-# TODO: good idea to put this in a function, as opposed to being loose in file.
 
-parser = argparse.ArgumentParser()
+def main():
+    parser = argparse.ArgumentParser()
 
-parser.add_argument('-ID', '--id', required=True, help='ID')
-parser.add_argument('-key', '--key', required=True, help='Key')
-parser.add_argument('-app', '--application', dest='app_name', required=True, help='Application Name')
-parser.add_argument('-baseline', '--baseline-file', dest='baseline_file', required=True, help='Baseline File')
+    # Add command line arguments
+    parser.add_argument('-id', '--id', '-ID', '--ID', required=False, help='Veracode API ID')
+    parser.add_argument('-key', '--key', required=False, help='Veracode API Key')
+    parser.add_argument('-profile', '--profile', required=False, help='Profile to pick from veracode credentials file. Default: default')
+    parser.add_argument('-app', '--application', dest='app_name', required=True, help='Application Name in Veracode Platform')
+    parser.add_argument('-baseline', '--baseline-file', dest='baseline_file', required=True, help='Baseline File to compare to (one of the resultExec files)')
 
-args = parser.parse_args()
+    args = parser.parse_args()
 
-id = args.id
-key = args.key
-app_name = args.app_name
-baseline_file = args.baseline_file
+    id = args.id
+    key = args.key
+    app_name = args.app_name
+    baseline_file = args.baseline_file
 
-if not all([id, key, app_name, baseline_file]):
-    parser.print_usage()
-    sys.exit(1)
+    # Set up ID and key using credentials file or input flags
+    id, key = EnvSetup.envSetup(args.id, args.key, args.profile)
 
-GenerateBaseLineFile(id, key, app_name, baseline_file)
+    GenerateBaseLineFile(id, key, app_name, baseline_file)
+
+if __name__ == "__main__":
+    main()

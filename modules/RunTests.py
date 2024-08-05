@@ -4,14 +4,14 @@ import time
 from threading import Semaphore, Thread
 
 # Creates scan request 
-def execute_shell_script(user, semaphore_dict, execution_count):
+def execute_shell_script(user, semaphore_dict, execution_count, app_name):
 
     print(f"Executing with user {user['user_id']} - Execution: {execution_count}")
     
     print(f"Executing with user {user['user_id']} - Execution: {execution_count}")
 
-    # Use the user to run the pipeline scan on verademo-dotnet
-    command = ["java", "-jar", "resources/pipeline-scan.jar", "-vid", user["api_id"], "-vkey", user["api_secret"], "-f", "resources/Verademo-dotnet.zip", "-jf", f"resultExec{execution_count}.json"]
+    # Use the user to run the pipeline scan on app
+    command = ["java", "-jar", "resources/pipeline-scan.jar", "-vid", user["api_id"], "-vkey", user["api_secret"], "-f", f"resources/{app_name}", "-jf", f"resultExec{execution_count}.json"]
 
     subprocess.call(command)
     
@@ -21,8 +21,10 @@ def execute_shell_script(user, semaphore_dict, execution_count):
     semaphore_dict[user["user_id"]].release()
 
 # This goes through adding threads for each user up to 5 to run 'execute_shell_script' 
-def control_execution(users, semaphore_dict, total_executions):
+def control_execution(users, semaphore_dict, total_executions, app_name):
     execution_count = 0
+
+    threads = []
 
     while execution_count < total_executions:
         # Add 
@@ -31,14 +33,19 @@ def control_execution(users, semaphore_dict, total_executions):
                 break
             # Checks if there are 5 executions
             if user.get("executions", 0) < 5 and semaphore_dict[user["user_id"]].acquire(blocking=False):
-                thread = Thread(target=execute_shell_script, args=(user, semaphore_dict, execution_count))
+                thread = Thread(target=execute_shell_script, args=(user, semaphore_dict, execution_count, app_name))
                 thread.start()
+                threads.append(thread)
 
                 execution_count += 1
 
         time.sleep(1)
+    
+    # Make sure all analysis are complete before proceeding with program
+    for thread in threads:
+        thread.join()
 
-def run_tests(total_executions):
+def run_tests(total_executions, app_name):
 
     # Load in data from json file
     with open("outputs/UsersAPIs.json", "r") as file:
@@ -48,4 +55,4 @@ def run_tests(total_executions):
     # declares each user to get max 5 threads.
     semaphore_dict = {user["user_id"]: Semaphore(5) for user in users}
 
-    control_execution(users, semaphore_dict, total_executions)
+    control_execution(users, semaphore_dict, total_executions, app_name)
