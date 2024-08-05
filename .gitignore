@@ -5,6 +5,6 @@ UsersAPI*
 TeamAPI*
 .venv/
 resultExec*
-filtered_res*
+filtered*
 __pycache__/
 Baseline_Mitigated*
