@@ -12,7 +12,7 @@ Also utilized is the `CreateUserInput.json` file, which is used by `CreateUsers`
 ## Getting Started
 Assuming you have python, download requirements by running `pip install -r requirements.txt`
     
-For a simple load test, run `python main.py -base_name [unique base name]`. This will by default create 200 users and run 1000 scans. Please see the `main.py` section below for a full list of flags to customize your request.
+For a simple load test, run `python main.py -base_name [unique base name]`. This will by default create 200 users and run 1000 scans. Please see the `main.py` section below for a full list of flags to customize your request. If you're using a login for a different region of Veracode, change to the correct region at the top of the main.py file
 
 The Example.py file compares a scan results file with the approved mitigations in one of the applications present in the account associated with your API credentials. In order to use this, run `python Example.py -app [name of app] -baseline [scan results file]`.
     
